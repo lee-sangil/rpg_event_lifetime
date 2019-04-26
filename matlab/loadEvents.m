@@ -28,9 +28,10 @@ else
     if(size(events,1) < 1)
         events = [];
         return 
-    end
+	end
+	events = events(:,[2 3 4 1]);
     events = sortrows(events,4);          % sort the rows by the timestamp
     events(:,3) = (events(:,3)+1)/2;
-    events(:,4) = events(:,4)-events(1,4);  % make timestamps relative
+%     events(:,4) = events(:,4)-events(1,4);  % make timestamps relative
     events(:,3) = (events(:,3)-0.75)*4;  % make polarity {-1,1} instead of {0.5,1}
 end
