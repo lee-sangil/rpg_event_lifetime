@@ -5,11 +5,11 @@
 % Seattle, 2015.
 % PDF: http://rpg.ifi.uzh.ch/docs/ICRA15_Mueggler.pdf
 
-addpath('../../similarity-for-edge-image/');
+addpath('../../Computer Vision/Similarity-for-edge-image/');
 
 %% Load data
-data_folder = 'D:\Datasets\DAVIS-240C\2019-04-23T17-21-54\';
-dataset = '2019-04-23T17-21-54';
+data_folder = 'F:\Datasets\DVS\shapes_translation\';
+dataset = 'shapes_translation';
 
 % load data
 % event = readtable([BaseDir 'events.txt'], 'Delimiter', ' ', 'ReadVariableNames', false);
@@ -42,7 +42,7 @@ end
 
 %% Compute lifetime
 % events_with_lifetime = calcVelocity(events(1:900000,:), N, epsilon, mu, reg, vis);
-[events_with_lifetime, t_dist, success] = calcVelocity(events, N, epsilon, mu, reg, vis, imSize);
+[events_with_lifetime, t_dist, success] = calcVelocity(events(1:500000,:), N, epsilon, mu, reg, vis, imSize);
 
 %% Create video
 % % visualization parameter for lifetime
@@ -52,8 +52,8 @@ end
 %     cmax = 14000;
 % end
 % 
-% % video using lifetime
-% dispOutput(events_with_lifetime, show_vel, -1, [dataset, '_lifetime'], cmax);
-% % video using fixed time interval of 30ms
+% video using lifetime
+dispOutput(events_with_lifetime, show_vel, -1, [dataset, '_lifetime'], 0.03);
+% video using fixed time interval of 30ms
 % dispOutput(events_with_lifetime, show_vel, 30, [dataset, '_dt30']);
-recordVideoSync;
+% recordVideoSync;

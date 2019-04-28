@@ -33,14 +33,14 @@ s = 1e+05; % scale factor for quiver plot
 % set time to be relative -> starting at t=0
 velEvents(:,4) = velEvents(:,4)-velEvents(1,4);
 
-endtime = round(velEvents(end,4)/1000); % endtime in ms
-IMAGE_FRAME = [128,128]; % image frame
+endtime = round(velEvents(end,4)*1000); % endtime in ms
+IMAGE_FRAME = [180,240]; % image frame
 timemat = zeros(IMAGE_FRAME); % initialize display time matrix
 colormat = zeros(IMAGE_FRAME); % initialize color matrix
 velocitymat = zeros(IMAGE_FRAME(1),IMAGE_FRAME(2),3); % initialize velocity vector matrix
 
-velEvents(:,4) = ceil(velEvents(:,4)./1000); % round data to ms
-velEvents(:,7) = ceil(velEvents(:,7)./1000);
+velEvents(:,4) = ceil(velEvents(:,4)*1000); % round data to ms
+velEvents(:,7) = ceil(velEvents(:,7)*1000);
 
 data = velEvents; 
 
